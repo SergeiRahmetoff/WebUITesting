@@ -34,15 +34,9 @@ public class CreateRecord {
                 .findElement(By.id("rewrite"))));
         driver.findElement(By.id("rewrite")).click();
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
-                .findElement(By.className("title"))));
-        WebElement assertRecord = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[1]/a"));
+        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
+        WebElement assertRecord = driver.findElement(By.className("title"));
         if (assertRecord.getText().equals("Тестовая запись 1")){
             System.out.println("Record OK");
         } else {
