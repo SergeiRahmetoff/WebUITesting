@@ -1,17 +1,30 @@
 package ru.rahmetoff;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static ru.rahmetoff.Log_in.driver;
+import static ru.rahmetoff.LoginTest.driver;
 
-public class CreateRecord {
+public class CreateRecordTest {
 
-    public static void main(String[] args) {
-        Log_in log_in = new Log_in();
-        log_in.login();
+    private String title = createTitle();
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String createTitle(){
+        int a = (int)(Math.random() * 100);
+        return "Тестовая запись " + a;
+    }
+
+    public void createRecord() {
+        LoginTest loginTest = new LoginTest();
+        loginTest.login();
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
                 .findElement(By.cssSelector(".i-menu-newpost"))));
@@ -21,7 +34,7 @@ public class CreateRecord {
                 .findElement(By.id("postTitle"))));
         WebElement recordTitle = driver.findElement(By.id("postTitle"));
         recordTitle.click();
-        recordTitle.sendKeys("Тестовая запись 1");
+        recordTitle.sendKeys(title);
 
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
@@ -33,17 +46,18 @@ public class CreateRecord {
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
                 .findElement(By.id("rewrite"))));
         driver.findElement(By.id("rewrite")).click();
+    }
 
+    @Test
+    public void createRecordTest(){
+        createRecord();
 
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
         WebElement assertRecord = driver.findElement(By.className("title"));
-        if (assertRecord.getText().equals("Тестовая запись 1")){
-            System.out.println("Record OK");
-        } else {
-            System.out.println("Record false");
-        }
+        Assertions.assertEquals(title, assertRecord.getText());
 
         driver.close();
+        driver.quit();
     }
 
 }
