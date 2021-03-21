@@ -1,5 +1,5 @@
 
-package ru.rahmetoff;
+package TriangleTest;
 
 import ru.rahmetoff.areaCalc.Triangle;
 import org.junit.jupiter.api.Assertions;
