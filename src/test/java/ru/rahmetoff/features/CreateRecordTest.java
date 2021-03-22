@@ -1,15 +1,14 @@
-package ru.rahmetoff;
+package ru.rahmetoff.features;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.jupiter.api.RepeatedTest;
+import ru.rahmetoff.base.BaseUITest;
+import ru.rahmetoff.common.Configuration;
+import ru.rahmetoff.diary.pages.LoginPage;
+import ru.rahmetoff.diary.pages.NewPostPage;
 
-import static ru.rahmetoff.LoginTest.driver;
+import static ru.rahmetoff.diary.enums.NavigationBarTabs.NEW_RECORD;
 
-public class CreateRecordTest {
+public class CreateRecordTest extends BaseUITest {
 
     private String title = createTitle();
 
@@ -22,42 +21,21 @@ public class CreateRecordTest {
         return "Тестовая запись " + a;
     }
 
-    public void createRecord() {
-        LoginTest loginTest = new LoginTest();
-        loginTest.login();
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
-                .findElement(By.cssSelector(".i-menu-newpost"))));
-        driver.findElement(By.cssSelector(".i-menu-newpost")).click();
-
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
-                .findElement(By.id("postTitle"))));
-        WebElement recordTitle = driver.findElement(By.id("postTitle"));
-        recordTitle.click();
-        recordTitle.sendKeys(title);
-
-
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
-                .findElement(By.id("message"))));
-        WebElement recordMessage = driver.findElement(By.id("message"));
-        recordMessage.click();
-        recordMessage.sendKeys("тест тест тест");
-
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver
-                .findElement(By.id("rewrite"))));
-        driver.findElement(By.id("rewrite")).click();
-    }
-
-    @Test
+    @RepeatedTest(2)
     public void createRecordTest(){
-        createRecord();
+        new LoginPage(driver)
+                .authoriseScenario(Configuration.LOGIN, Configuration.PASSWORD)
+                .getPageNavigation()
+                .clickNavigationTab(NEW_RECORD);
+        new NewPostPage(driver)
+                .clickRecordTitle()
+                .recordTitle(title)
+                .clickMessageArea()
+                .recordMessage("тест тест тест")
+                .rewritePost()
+                .checkLastPostTitle(title);
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.className("title")));
-        WebElement assertRecord = driver.findElement(By.className("title"));
-        Assertions.assertEquals(title, assertRecord.getText());
-
-        driver.close();
-        driver.quit();
     }
 
 }

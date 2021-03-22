@@ -1,45 +1,37 @@
-package ru.rahmetoff;
+package ru.rahmetoff.features;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.rahmetoff.base.BaseUITest;
+import ru.rahmetoff.common.Configuration;
+import ru.rahmetoff.diary.pages.LoginPage;
+import ru.rahmetoff.diary.pages.MyDairyPage;
 
-import static ru.rahmetoff.LoginTest.driver;
-
-public class DeleteRecordTest {
-
-    public void deleteRecord() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions
-                .visibilityOfElementLocated(By.xpath(".//span[@class='alt' and text() = 'Мой дневник']")));
-        driver.findElement(By.xpath(".//span[@class='alt' and text() = 'Мой дневник']")).click();
+import static ru.rahmetoff.diary.enums.NavigationBarTabs.MY_DIARY;
 
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("delPostLink")));
-        driver.findElement(By.className("delPostLink")).click();
+public class DeleteRecordTest extends BaseUITest {
 
-        new WebDriverWait(driver, 5).until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("submit")));
-        driver.findElement(By.className("submit")).click();
+    @Disabled
+    @Test
+    public void deleteRecordWithoutCheckTest(){
+        new LoginPage(driver)
+                .authoriseScenario(Configuration.LOGIN, Configuration.PASSWORD)
+                .getPageNavigation()
+                .clickNavigationTab(MY_DIARY);
+        new MyDairyPage(driver)
+                .deletePostWithoutCheck();
     }
 
     @Test
     public void deleteRecordTest() {
-        CreateRecordTest createRecordTest = new CreateRecordTest();
-        createRecordTest.createRecord();
-        deleteRecord();
-
-        new WebDriverWait(driver, 10).until(ExpectedConditions
-                .visibilityOfElementLocated(By.className("title")));
-        WebElement assertRecord = driver.findElement(By.className("title"));
-        System.out.println(assertRecord.getText());
-        System.out.println(createRecordTest.getTitle());
-        Assertions.assertNotEquals(createRecordTest.getTitle(), assertRecord.getText());
-
-        driver.close();
-        driver.quit();
+        new LoginPage(driver)
+                .authoriseScenario(Configuration.LOGIN, Configuration.PASSWORD)
+                .getPageNavigation()
+                .clickNavigationTab(MY_DIARY);
+        String postTitle = new MyDairyPage(driver).getLastPostTitle();
+        new MyDairyPage(driver)
+                .deletePostWithoutCheck()
+                .negativeCheckLastPostTitle(postTitle);
     }
 }
