@@ -1,0 +1,7 @@
+ru\rahmetoff\diary\pages\HomePage.class
+ru\rahmetoff\diary\base\BaseView.class
+ru\rahmetoff\diary\pages\MyDairyPage.class
+ru\rahmetoff\diary\enums\NavigationBarTabs.class
+ru\rahmetoff\diary\pages\LoginPage.class
+ru\rahmetoff\diary\views\NavigationBar.class
+ru\rahmetoff\diary\pages\NewPostPage.class

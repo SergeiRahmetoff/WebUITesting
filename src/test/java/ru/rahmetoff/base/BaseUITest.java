@@ -1,4 +1,4 @@
-package ru.geekbrains.webui.base;
+package ru.rahmetoff.base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -11,13 +11,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-import static ru.geekbrains.webui.common.Configuration.BASE_URL;
-import static ru.geekbrains.webui.common.Configuration.LOGIN_PATH;
+import static ru.rahmetoff.common.Configuration.HOME_PAGE_URL;
 
 public abstract class BaseUITest {
     protected WebDriver driver;
-
-
 
     @BeforeAll
     public static void setUp() {
@@ -29,12 +26,11 @@ public abstract class BaseUITest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        //стенд тормозит, лучше использовать стратегию NORMAL
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get(BASE_URL + LOGIN_PATH);
+        driver.get(HOME_PAGE_URL);
     }
 
     @AfterEach
