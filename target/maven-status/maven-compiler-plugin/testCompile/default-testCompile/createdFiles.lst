@@ -1,0 +1,7 @@
+ru\rahmetoff\features\EditRecord\EditRecordTest.class
+ru\rahmetoff\features\Login\LoginTest.class
+ru\rahmetoff\features\Navigation\VisibilityTest.class
+ru\rahmetoff\common\Configuration.class
+ru\rahmetoff\base\BaseUITest.class
+ru\rahmetoff\features\CreateRecord\CreateRecordTest.class
+ru\rahmetoff\features\EditRecord\DeleteRecordTest.class

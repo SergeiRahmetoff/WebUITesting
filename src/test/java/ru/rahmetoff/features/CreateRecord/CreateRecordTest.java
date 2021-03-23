@@ -1,5 +1,7 @@
-package ru.rahmetoff.features;
+package ru.rahmetoff.features.CreateRecord;
 
+import io.qameta.allure.Feature;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import ru.rahmetoff.base.BaseUITest;
 import ru.rahmetoff.common.Configuration;
@@ -20,8 +22,8 @@ public class CreateRecordTest extends BaseUITest {
         int a = (int)(Math.random() * 100);
         return "Тестовая запись " + a;
     }
-
-
+    @DisplayName("Создание нового поста")
+    @Feature("Создание нового поста")
     @RepeatedTest(2)
     public void createRecordTest(){
         new LoginPage(driver)

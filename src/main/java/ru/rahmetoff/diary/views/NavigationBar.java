@@ -1,5 +1,6 @@
 package ru.rahmetoff.diary.views;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +13,7 @@ public class NavigationBar extends BaseView {
         super(driver);
     }
 
+    @Step(value = "Клик на поле {tab} главного меню")
     public void clickNavigationTab(NavigationBarTabs tab) {
         Actions actions = new Actions(driver);
         actions
@@ -29,6 +31,7 @@ public class NavigationBar extends BaseView {
 //  U_MAIL
 //  SETTINGS
 
+    @Step(value = "Проверка видимости поля {tab} главного меню")
     public NavigationBar checkTabVisibility(NavigationBarTabs tab) {
         Assertions.assertTrue(driver.findElement(tab.getBy()).isDisplayed());
         return this;

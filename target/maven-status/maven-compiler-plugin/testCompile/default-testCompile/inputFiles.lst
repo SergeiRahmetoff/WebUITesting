@@ -1,7 +1,7 @@
 D:\repo\WebUITesting\src\test\java\ru\rahmetoff\base\BaseUITest.java
-D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\LoginTest.java
+D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\EditRecord\DeleteRecordTest.java
 D:\repo\WebUITesting\src\test\java\ru\rahmetoff\common\Configuration.java
-D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\CreateRecordTest.java
-D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\VisibilityTest.java
-D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\EditRecordTest.java
-D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\DeleteRecordTest.java
+D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\CreateRecord\CreateRecordTest.java
+D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\EditRecord\EditRecordTest.java
+D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\Login\LoginTest.java
+D:\repo\WebUITesting\src\test\java\ru\rahmetoff\features\Navigation\VisibilityTest.java

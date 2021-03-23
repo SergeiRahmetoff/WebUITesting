@@ -1,5 +1,6 @@
 package ru.rahmetoff.diary.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,16 +30,17 @@ public class MyDairyPage extends BaseView {
 
     public MyDairyPage(WebDriver driver) { super(driver); }
 
+    @Step(value = "Нажатие на кнопку удаления поста")
     public MyDairyPage deletePost() {
         deletePostLink.click();
         return this;
     }
-
+    @Step(value = "Подтверждение удаления поста")
     public MyDairyPage submitDeletePost() {
         submitDeletePostLink.click();
         return this;
     }
-
+    @Step(value = "Нажатие на кнопку подтверждения редактирования поста")
     public NewPostPage editPost() {
         editPostLink.click();
         return new NewPostPage(driver);
@@ -48,14 +50,14 @@ public class MyDairyPage extends BaseView {
         return lastPostTitle.getText();
     }
 
-    public void checkLastPostTitle(String title) { assertEquals(lastPostTitle.getText(), title);
-    }
-    public void negativeCheckLastPostTitle(String title) { assertNotEquals(lastPostTitle.getText(), title);
-    }
-    public void checkNewRecordText(String text) { assertEquals(assertNewRecordText.getText(), text);
-    }
-    public void checkNewRecordBoldText(String text) { assertEquals(assertNewRecordBoldText.getText(), text);
-    }
+    @Step(value = "Проверка добавления поста по заголовку {title}")
+    public void checkLastPostTitle(String title) { assertEquals(lastPostTitle.getText(), title); }
+    @Step(value = "Проверка удаления поста по заголовку {title}")
+    public void negativeCheckLastPostTitle(String title) { assertNotEquals(lastPostTitle.getText(), title); }
+    @Step(value = "Проверка удаления текста")
+    public void checkNewRecordText(String text) { assertEquals(assertNewRecordText.getText(), text); }
+    @Step(value = "Проверка выделения текста жирным шрифтом")
+    public void checkNewRecordBoldText(String text) { assertEquals(assertNewRecordBoldText.getText(), text); }
 
     public MyDairyPage deletePostWithoutCheck(){
         new MyDairyPage(driver)

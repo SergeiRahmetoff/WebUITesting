@@ -1,6 +1,8 @@
-package ru.rahmetoff.features;
+package ru.rahmetoff.features.EditRecord;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.rahmetoff.base.BaseUITest;
 import ru.rahmetoff.common.Configuration;
@@ -22,7 +24,8 @@ public class DeleteRecordTest extends BaseUITest {
         new MyDairyPage(driver)
                 .deletePostWithoutCheck();
     }
-
+    @DisplayName("Удаление поста")
+    @Feature("Редактирование поста")
     @Test
     public void deleteRecordTest() {
         new LoginPage(driver)

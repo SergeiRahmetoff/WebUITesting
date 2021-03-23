@@ -1,5 +1,7 @@
-package ru.rahmetoff.features;
+package ru.rahmetoff.features.EditRecord;
 
+import io.qameta.allure.Feature;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -13,7 +15,8 @@ import static ru.rahmetoff.diary.enums.NavigationBarTabs.MY_DIARY;
 
 
 public class EditRecordTest extends BaseUITest {
-
+    @DisplayName("Редактирование поста")
+    @Feature("Редактирование поста")
     @Test
     public void editRecordTest() {
 

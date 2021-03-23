@@ -1,0 +1,39 @@
+# Created at 2021-03-23T05:39:54.732
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,161 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]'.
+
+# Created at 2021-03-23T05:39:54.738
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,161 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]'.
+
+# Created at 2021-03-23T05:39:54.738
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,162 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/D:/repo/WebUITesting/target/test-classes/logback.xml]'.
+
+# Created at 2021-03-23T05:39:54.739
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,384 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set'.
+
+# Created at 2021-03-23T05:39:54.739
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,385 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]'.
+
+# Created at 2021-03-23T05:39:54.740
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,416 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]'.
+
+# Created at 2021-03-23T05:39:54.740
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,584 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.'.
+
+# Created at 2021-03-23T05:39:54.741
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,584 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.'.
+
+# Created at 2021-03-23T05:39:54.741
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,584 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details'.
+
+# Created at 2021-03-23T05:39:54.742
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,586 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO'.
+
+# Created at 2021-03-23T05:39:54.742
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,586 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]'.
+
+# Created at 2021-03-23T05:39:54.742
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,625 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.'.
+
+# Created at 2021-03-23T05:39:54.743
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream '05:39:54,627 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@740fb309 - Registering current configuration as safe fallback point'.
+

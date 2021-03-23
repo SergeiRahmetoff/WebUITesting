@@ -1,5 +1,6 @@
 package ru.rahmetoff.diary.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,13 +16,16 @@ public class HomePage extends BaseView {
 
     private NavigationBar navigationBar;
 
+
     public HomePage(WebDriver driver) {
         super(driver);
         this.navigationBar = new NavigationBar(driver);
     }
 
+    @Step(value = "Проверка входа в аккаунт по имени пользователя {uName}")
     public void checkLogIN(String uName) { assertEquals(userName.getText(), uName);
     }
+
 
     public NavigationBar getPageNavigation() {
         return navigationBar;
